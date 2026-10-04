@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="es"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">    &lt;meta charset="UTF-8"&gt;</p>
+<p class="p1">    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1">    &lt;title&gt;Agenda - Estudio 2&lt;/title&gt;</p>
+<p class="p1">    &lt;style&gt;</p>
+<p class="p1">        :root {</p>
+<p class="p1">            --primary: #0056b3;</p>
+<p class="p1">            --bg: #f4f7f6;</p>
+<p class="p1">            --text: #333;</p>
+<p class="p1">            --danger: #dc3545;</p>
+<p class="p1">            --success: #28a745;</p>
+<p class="p1">        }</p>
+<p class="p1">        body {</p>
+<p class="p1">            font-family: system-ui, -apple-system, sans-serif;</p>
+<p class="p1">            background-color: var(--bg);</p>
+<p class="p1">            color: var(--text);</p>
+<p class="p1">            margin: 0;</p>
+<p class="p1">            padding: 20px;</p>
+<p class="p1">            box-sizing: border-box;</p>
+<p class="p1">        }</p>
+<p class="p1">        .container {</p>
+<p class="p1">            max-width: 800px;</p>
+<p class="p1">            margin: 0 auto;</p>
+<p class="p1">            background: white;</p>
+<p class="p1">            padding: 20px;</p>
+<p class="p1">            border-radius: 8px;</p>
+<p class="p1">            box-shadow: 0 4px 6px rgba(0,0,0,0.1);</p>
+<p class="p1">        }</p>
+<p class="p1">        header {</p>
+<p class="p1">            text-align: center;</p>
+<p class="p1">            border-bottom: 2px solid var(--primary);</p>
+<p class="p1">            padding-bottom: 15px;</p>
+<p class="p1">            margin-bottom: 20px;</p>
+<p class="p1">        }</p>
+<p class="p1">        h1, h2, h3 { color: var(--primary); }</p>
+<p class="p1">        .screen { display: none; }</p>
+<p class="p1">        .screen.active { display: block; }</p>
+<p class="p1">       <span class="Apple-converted-space"> </span></p>
+<p class="p1">        /* Form Elements */</p>
+<p class="p1">        label { display: block; margin-top: 15px; font-weight: bold; }</p>
+<p class="p1">        input[type="text"], input[type="tel"], input[type="date"], select {</p>
+<p class="p1">            width: 100%;</p>
+<p class="p1">            padding: 12px;</p>
+<p class="p1">            margin-top: 5px;</p>
+<p class="p1">            border: 1px solid #ccc;</p>
+<p class="p1">            border-radius: 4px;</p>
+<p class="p1">            font-size: 16px;</p>
+<p class="p1">            box-sizing: border-box;</p>
+<p class="p1">        }</p>
+<p class="p1">        .button-group {</p>
+<p class="p1">            display: flex;</p>
+<p class="p1">            gap: 10px;</p>
+<p class="p1">            margin-top: 25px;</p>
+<p class="p1">        }</p>
+<p class="p1">        button {</p>
+<p class="p1">            flex: 1;</p>
+<p class="p1">            padding: 15px;</p>
+<p class="p1">            border: none;</p>
+<p class="p1">            border-radius: 4px;</p>
+<p class="p1">            font-size: 16px;</p>
+<p class="p1">            cursor: pointer;</p>
+<p class="p1">            font-weight: bold;</p>
+<p class="p1">            color: white;</p>
+<p class="p1">        }</p>
+<p class="p1">        .btn-primary { background-color: var(--primary); }</p>
+<p class="p1">        .btn-danger { background-color: var(--danger); }</p>
+<p class="p1">        .btn-success { background-color: var(--success); }</p>
+<p class="p1">        .btn-secondary { background-color: #6c757d; }</p>
+<p class="p1">       <span class="Apple-converted-space"> </span></p>
+<p class="p1">        /* Dashboard &amp; Lists */</p>
+<p class="p1">        .appointment-card {</p>
+<p class="p1">            border: 1px solid #ddd;</p>
+<p class="p1">            padding: 15px;</p>
+<p class="p1">            margin-bottom: 10px;</p>
+<p class="p1">            border-radius: 4px;</p>
+<p class="p1">            cursor: pointer;</p>
+<p class="p1">            transition: background 0.2s;</p>
+<p class="p1">        }</p>
+<p class="p1">        .appointment-card:hover { background-color: #f1f1f1; }</p>
+<p class="p1">        .nav-buttons { margin-bottom: 20px; display: flex; gap: 10px; }</p>
+<p class="p1">       <span class="Apple-converted-space"> </span></p>
+<p class="p1">        @media print {</p>
+<p class="p1">            .no-print { display: none !important; }</p>
+<p class="p1">            body { background: white; }</p>
+<p class="p1">            .container { box-shadow: none; }</p>
+<p class="p1">        }</p>
+<p class="p1">    &lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"> </p>
+<p class="p1">&lt;div class="container"&gt;</p>
+<p class="p1">    &lt;header&gt;</p>
+<p class="p1">        &lt;h2&gt;Calle Sierra de Alquife 12. 3º B Estudio 2. 28053. Madrid.&lt;/h2&gt;</p>
+<p class="p1">    &lt;/header&gt;</p>
+<p class="p1"> </p>
+<p class="p1">    &lt;!-- PANTALLA 1: CALENDARIO Y FORMULARIO --&gt;</p>
+<p class="p1">    &lt;div id="screen-booking" class="screen active no-print"&gt;</p>
+<p class="p1">        &lt;h3&gt;Seleccione Fecha y Hora&lt;/h3&gt;</p>
+<p class="p1">       <span class="Apple-converted-space"> </span></p>
+<p class="p1">        &lt;label for="date"&gt;Fecha de la cita (Obligatorio):&lt;/label&gt;</p>
+<p class="p1">        &lt;input type="date" id="date" required onchange="generateTimeSlots()"&gt;</p>
+<p class="p1">       <span class="Apple-converted-space"> </span></p>
+<p class="p1">        &lt;div id="time-container" style="display:none;"&gt;</p>
+<p class="p1">            &lt;label for="time"&gt;Hora disponible:&lt;/label&gt;</p>
+<p class="p1">            &lt;select id="time"&gt;&lt;/select&gt;</p>
+<p class="p1">        &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">        &lt;label for="name"&gt;Nombre/s Cliente/s (Obligatorio):&lt;/label&gt;</p>
+<p class="p1">        &lt;input type="text" id="name" placeholder="Ej. Juan Pérez" required&gt;</p>
+<p class="p1"> </p>
+<p class="p1">        &lt;label for="phone"&gt;Teléfono de contacto (Opcional):&lt;/label&gt;</p>
+<p class="p1">        &lt;input type="tel" id="phone" placeholder="Ej. +34 600000000"&gt;</p>
+<p class="p1"> </p>
+<p class="p1">        &lt;div class="button-group"&gt;</p>
+<p class="p1">            &lt;button class="btn-danger" onclick="clearForm()"&gt;Cancelar&lt;/button&gt;</p>
+<p class="p1">            &lt;button class="btn-primary" onclick="goToConfirmation()"&gt;Aceptar cita&lt;/button&gt;</p>
+<p class="p1">        &lt;/div&gt;</p>
+<p class="p1">       <span class="Apple-converted-space"> </span></p>
+<p class="p1">        &lt;div style="margin-top: 30px; text-align: center;"&gt;</p>
+<p class="p1">            &lt;button class="btn-secondary" style="width: auto; padding: 10px 20px;" onclick="showDashboard()"&gt;Ver Agenda / Citas Programadas&lt;/button&gt;</p>
+<p class="p1">        &lt;/div&gt;</p>
+<p class="p1">    &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">    &lt;!-- PANTALLA 2: CONFIRMACIÓN --&gt;</p>
+<p class="p1">    &lt;div id="screen-confirm" class="screen no-print"&gt;</p>
+<p class="p1">        &lt;h3&gt;Confirmar Cita&lt;/h3&gt;</p>
+<p class="p1">        &lt;p&gt;&lt;strong&gt;Cliente:&lt;/strong&gt; &lt;span id="conf-name"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1">        &lt;p&gt;&lt;strong&gt;Teléfono:&lt;/strong&gt; &lt;span id="conf-phone"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1">        &lt;p&gt;&lt;strong&gt;Fecha:&lt;/strong&gt; &lt;span id="conf-date"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1">        &lt;p&gt;&lt;strong&gt;Hora:&lt;/strong&gt; &lt;span id="conf-time"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"> </p>
+<p class="p1">        &lt;div class="button-group"&gt;</p>
+<p class="p1">            &lt;button class="btn-danger" onclick="showScreen('screen-booking')"&gt;Cancelar&lt;/button&gt;</p>
+<p class="p1">            &lt;button class="btn-success" onclick="saveAppointment()"&gt;Confirmar&lt;/button&gt;</p>
+<p class="p1">        &lt;/div&gt;</p>
+<p class="p1">    &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">    &lt;!-- PANTALLA 3: AGENDA / DASHBOARD --&gt;</p>
+<p class="p1">    &lt;div id="screen-dashboard" class="screen"&gt;</p>
+<p class="p1">        &lt;div class="no-print nav-buttons"&gt;</p>
+<p class="p1">            &lt;button class="btn-primary" onclick="showScreen('screen-booking')"&gt;+ Nueva Cita&lt;/button&gt;</p>
+<p class="p1">            &lt;button class="btn-secondary" onclick="window.print()"&gt;Imprimir Listado&lt;/button&gt;</p>
+<p class="p1">        &lt;/div&gt;</p>
+<p class="p1">       <span class="Apple-converted-space"> </span></p>
+<p class="p1">        &lt;h3&gt;Citas Programadas&lt;/h3&gt;</p>
+<p class="p1">        &lt;div class="no-print" style="margin-bottom: 20px;"&gt;</p>
+<p class="p1">            &lt;label for="view-filter"&gt;Filtrar vista:&lt;/label&gt;</p>
+<p class="p1">            &lt;select id="view-filter" onchange="renderAppointments()"&gt;</p>
+<p class="p1">                &lt;option value="all"&gt;Todas&lt;/option&gt;</p>
+<p class="p1">                &lt;option value="today"&gt;Hoy&lt;/option&gt;</p>
+<p class="p1">                &lt;option value="3days"&gt;Próximos 3 días&lt;/option&gt;</p>
+<p class="p1">                &lt;option value="week"&gt;Próxima semana&lt;/option&gt;</p>
+<p class="p1">                &lt;option value="month"&gt;Próximo mes&lt;/option&gt;</p>
+<p class="p1">            &lt;/select&gt;</p>
+<p class="p1">        &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">        &lt;div id="appointments-list"&gt;&lt;/div&gt;</p>
+<p class="p1">    &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">    &lt;!-- PANTALLA 4: DETALLE Y ANULAR --&gt;</p>
+<p class="p1">    &lt;div id="screen-details" class="screen no-print"&gt;</p>
+<p class="p1">        &lt;h3&gt;Detalle de la Cita&lt;/h3&gt;</p>
+<p class="p1">        &lt;p&gt;&lt;strong&gt;Cliente:&lt;/strong&gt; &lt;span id="det-name"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1">        &lt;p&gt;&lt;strong&gt;Teléfono:&lt;/strong&gt; &lt;span id="det-phone"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1">        &lt;p&gt;&lt;strong&gt;Fecha:&lt;/strong&gt; &lt;span id="det-date"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1">        &lt;p&gt;&lt;strong&gt;Hora:&lt;/strong&gt; &lt;span id="det-time"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"> </p>
+<p class="p1">        &lt;div class="button-group"&gt;</p>
+<p class="p1">            &lt;button class="btn-secondary" onclick="showDashboard()"&gt;Volver&lt;/button&gt;</p>
+<p class="p1">            &lt;button class="btn-danger" onclick="cancelAppointment()"&gt;ANULAR CITA&lt;/button&gt;</p>
+<p class="p1">        &lt;/div&gt;</p>
+<p class="p1">    &lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p1"> </p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">    // Variables globales</p>
+<p class="p1">    let currentAppointment = {};</p>
+<p class="p1">    let appointments = JSON.parse(localStorage.getItem('appointments')) || [];</p>
+<p class="p1">    let selectedIdToCancel = null;</p>
+<p class="p1"> </p>
+<p class="p1">    // Horas bloqueadas por defecto (Ej: comida 14:00 - 15:00) - Modificable</p>
+<p class="p1">    const blockedHours = ["14:00", "14:15", "14:30", "14:45"];</p>
+<p class="p1"> </p>
+<p class="p1">    // Configurar fecha mínima de hoy en el calendario al cargar</p>
+<p class="p1">    document.addEventListener('DOMContentLoaded', () =&gt; {</p>
+<p class="p1">        const today = new Date().toISOString().split('T')[0];</p>
+<p class="p1">        document.getElementById('date').setAttribute('min', today);</p>
+<p class="p1">    });</p>
+<p class="p1"> </p>
+<p class="p1">    function showScreen(screenId) {</p>
+<p class="p1">        document.querySelectorAll('.screen').forEach(s =&gt; s.classList.remove('active'));</p>
+<p class="p1">        document.getElementById(screenId).classList.add('active');</p>
+<p class="p1">    }</p>
+<p class="p1"> </p>
+<p class="p1">    function generateTimeSlots() {</p>
+<p class="p1">        const dateInput = document.getElementById('date').value;</p>
+<p class="p1">        if (!dateInput) return;</p>
+<p class="p1">       <span class="Apple-converted-space"> </span></p>
+<p class="p1">        const timeSelect = document.getElementById('time');</p>
+<p class="p1">        timeSelect.innerHTML = '';</p>
+<p class="p1">       <span class="Apple-converted-space"> </span></p>
+<p class="p1">        // Generar horas de 09:00 a 19:30 en intervalos de 15 min</p>
+<p class="p1">        let startTime = 9 * 60; // 9:00 en minutos</p>
+<p class="p1">        let endTime = 19 * 60 + 30; // 19:30 en minutos</p>
+<p class="p1"> </p>
+<p class="p1">        for (let time = startTime; time &lt;= endTime; time += 15) {</p>
+<p class="p1">            let hours = Math.floor(time / 60);</p>
+<p class="p1">            let mins = time % 60;</p>
+<p class="p1">            let timeString = `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`;</p>
+<p class="p1">           <span class="Apple-converted-space"> </span></p>
+<p class="p1">            // Verificar si la hora está bloqueada o ya reservada ese día</p>
+<p class="p1">            let isBlocked = blockedHours.includes(timeString);</p>
+<p class="p1">            let isBooked = appointments.some(app =&gt; app.date === dateInput &amp;&amp; app.time === timeString);</p>
+<p class="p1"> </p>
+<p class="p1">            if (!isBlocked &amp;&amp; !isBooked) {</p>
+<p class="p1">                let option = document.createElement('option');</p>
+<p class="p1">                option.value = timeString;</p>
+<p class="p1">                option.textContent = timeString;</p>
+<p class="p1">                timeSelect.appendChild(option);</p>
+<p class="p1">            }</p>
+<p class="p1">        }</p>
+<p class="p1">        document.getElementById('time-container').style.display = 'block';</p>
+<p class="p1">    }</p>
+<p class="p1"> </p>
+<p class="p1">    function getDayOfWeek(dateString) {</p>
+<p class="p1">        const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];</p>
+<p class="p1">        const d = new Date(dateString);</p>
+<p class="p1">        return days[d.getDay()];</p>
+<p class="p1">    }</p>
+<p class="p1"> </p>
+<p class="p1">    function goToConfirmation() {</p>
+<p class="p1">        const name = document.getElementById('name').value.trim();</p>
+<p class="p1">        const phone = document.getElementById('phone').value.trim();</p>
+<p class="p1">        const date = document.getElementById('date').value;</p>
+<p class="p1">        const time = document.getElementById('time').value;</p>
+<p class="p1"> </p>
+<p class="p1">        if (!name || !date || !time) {</p>
+<p class="p1">            alert("Por favor, rellene el nombre, fecha y hora.");</p>
+<p class="p1">            return;</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        const dayName = getDayOfWeek(date);</p>
+<p class="p1">        const formattedDate = date.split('-').reverse().join('/');</p>
+<p class="p1"> </p>
+<p class="p1">        currentAppointment = {</p>
+<p class="p1">            id: Date.now().toString(),</p>
+<p class="p1">            name, phone, date, time, dayName, formattedDate</p>
+<p class="p1">        };</p>
+<p class="p1"> </p>
+<p class="p1">        document.getElementById('conf-name').textContent = name;</p>
+<p class="p1">        document.getElementById('conf-phone').textContent = phone || "No proporcionado";</p>
+<p class="p1">        document.getElementById('conf-date').textContent = `${dayName}, ${formattedDate}`;</p>
+<p class="p1">        document.getElementById('conf-time').textContent = time;</p>
+<p class="p1"> </p>
+<p class="p1">        showScreen('screen-confirm');</p>
+<p class="p1">    }</p>
+<p class="p1"> </p>
+<p class="p1">    function saveAppointment() {</p>
+<p class="p1">        appointments.push(currentAppointment);</p>
+<p class="p1">        localStorage.setItem('appointments', JSON.stringify(appointments));</p>
+<p class="p1">       <span class="Apple-converted-space"> </span></p>
+<p class="p1">        // Enviar mensaje de WhatsApp si hay teléfono</p>
+<p class="p1">        if (currentAppointment.phone) {</p>
+<p class="p1">            const msg = `Estimado cliente, a su petición le hemos asignado cita para visitar el Estudio que sita en CL Sierra de Alquife el ${currentAppointment.dayName}, ${currentAppointment.formattedDate} a las ${currentAppointment.time}, por lo queda reservada. Le mostrará el estudio el Agente Rubén que le estará esperando en la puerta del Centro de Salud que se encuentra en el mismo parque de la CL Sierra de Alquife. Rogamos puntualidad en la medida de lo posible, si desean cancelar la visita, les rogamos nos llame o escriban SMS o Text a WhatsApp diciendo el nombre a quien está la visita día y hora y la palabra ANULAR. Gracias por su colaboración.`;</p>
+<p class="p1">           <span class="Apple-converted-space"> </span></p>
+<p class="p1">            const encodedMsg = encodeURIComponent(msg);</p>
+<p class="p1">            const cleanPhone = currentAppointment.phone.replace(/\D/g,''); // Elimina espacios y símbolos</p>
+<p class="p1">            const waUrl = `https://wa.me/${cleanPhone}?text=${encodedMsg}`;</p>
+<p class="p1">            window.open(waUrl, '_blank');</p>
+<p class="p1">        }</p>
+<p class="p1"> </p>
+<p class="p1">        clearForm();</p>
+<p class="p1">        showDashboard();</p>
+<p class="p1">    }</p>
+<p class="p1"> </p>
+<p class="p1">    function clearForm() {</p>
+<p class="p1">        document.getElementById('name').value = '';</p>
+<p class="p1">        document.getElementById('phone').value = '';</p>
+<p class="p1">        document.getElementById('date').value = '';</p>
+<p class="p1">        document.getElementById('time-container').style.display = 'none';</p>
+<p class="p1">        currentAppointment = {};</p>
+<p class="p1">        showScreen('screen-booking');</p>
+<p class="p1">    }</p>
+<p class="p1"> </p>
+<p class="p1">    function showDashboard() {</p>
+<p class="p1">        renderAppointments();</p>
+<p class="p1">        showScreen('screen-dashboard');</p>
+<p class="p1">    }</p>
+<p class="p1"> </p>
+<p class="p1">    function renderAppointments() {</p>
+<p class="p1">        const list = document.getElementById('appointments-list');</p>
+<p class="p1">        const filter = document.getElementById('view-filter').value;</p>
+<p class="p1">        list.innerHTML = '';</p>
+<p class="p1">       <span class="Apple-converted-space"> </span></p>
+<p class="p1">        const today = new Date();</p>
+<p class="p1">        today.setHours(0,0,0,0);</p>
+<p class="p1"> </p>
+<p class="p1">        // Ordenar por fecha y hora</p>
+<p class="p1">        let filtered = appointments.sort((a, b) =&gt; {</p>
+<p class="p1">            return new Date(a.date + 'T' + a.time) - new Date(b.date + 'T' + b.time);</p>
+<p class="p1">        });</p>
+<p class="p1"> </p>
+<p class="p1">        filtered.forEach(app =&gt; {</p>
+<p class="p1">            const appDate = new Date(app.date);</p>
+<p class="p1">            appDate.setHours(0,0,0,0);</p>
+<p class="p1">            const diffTime = Math.abs(appDate - today);</p>
+<p class="p1">            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));</p>
+<p class="p1">           <span class="Apple-converted-space"> </span></p>
+<p class="p1">            let show = false;</p>
+<p class="p1">            if (filter === 'all') show = true;</p>
+<p class="p1">            else if (filter === 'today' &amp;&amp; diffDays === 0 &amp;&amp; appDate.getTime() === today.getTime()) show = true;</p>
+<p class="p1">            else if (filter === '3days' &amp;&amp; appDate &gt;= today &amp;&amp; diffDays &lt;= 3) show = true;</p>
+<p class="p1">            else if (filter === 'week' &amp;&amp; appDate &gt;= today &amp;&amp; diffDays &lt;= 7) show = true;</p>
+<p class="p1">            else if (filter === 'month' &amp;&amp; appDate &gt;= today &amp;&amp; diffDays &lt;= 30) show = true;</p>
+<p class="p1"> </p>
+<p class="p1">            if (show) {</p>
+<p class="p1">                const card = document.createElement('div');</p>
+<p class="p1">                card.className = 'appointment-card';</p>
+<p class="p1">                card.innerHTML = `&lt;strong&gt;${app.time}&lt;/strong&gt; - ${app.dayName}, ${app.formattedDate}&lt;br&gt;</p>
+<p class="p1">                                  Cliente: ${app.name} &lt;br&gt; Tel: ${app.phone || 'N/A'}`;</p>
+<p class="p1">                card.onclick = () =&gt; openDetails(app.id);</p>
+<p class="p1">                list.appendChild(card);</p>
+<p class="p1">            }</p>
+<p class="p1">        });</p>
+<p class="p1"> </p>
+<p class="p1">        if (list.innerHTML === '') {</p>
+<p class="p1">            list.innerHTML = '&lt;p&gt;No hay citas programadas para este periodo.&lt;/p&gt;';</p>
+<p class="p1">        }</p>
+<p class="p1">    }</p>
+<p class="p1"> </p>
+<p class="p1">    function openDetails(id) {</p>
+<p class="p1">        const app = appointments.find(a =&gt; a.id === id);</p>
+<p class="p1">        if(!app) return;</p>
+<p class="p1">       <span class="Apple-converted-space"> </span></p>
+<p class="p1">        selectedIdToCancel = id;</p>
+<p class="p1">        document.getElementById('det-name').textContent = app.name;</p>
+<p class="p1">        document.getElementById('det-phone').textContent = app.phone || "N/A";</p>
+<p class="p1">        document.getElementById('det-date').textContent = `${app.dayName}, ${app.formattedDate}`;</p>
+<p class="p1">        document.getElementById('det-time').textContent = app.time;</p>
+<p class="p1">       <span class="Apple-converted-space"> </span></p>
+<p class="p1">        showScreen('screen-details');</p>
+<p class="p1">    }</p>
+<p class="p1"> </p>
+<p class="p1">    function cancelAppointment() {</p>
+<p class="p1">        if(confirm("¿Está seguro de que desea ANULAR esta cita?")) {</p>
+<p class="p1">            appointments = appointments.filter(a =&gt; a.id !== selectedIdToCancel);</p>
+<p class="p1">            localStorage.setItem('appointments', JSON.stringify(appointments));</p>
+<p class="p1">            alert("Cita anulada con éxito.");</p>
+<p class="p1">            showDashboard();</p>
+<p class="p1">        }</p>
+<p class="p1">    }</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
